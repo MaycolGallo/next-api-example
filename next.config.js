@@ -1,5 +1,9 @@
-module.exports = {
-    images: {
-      domains: ["fakestoreapi.com" ],
-    },
-  };
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: ["fakestoreapi.com"],
+  },
+}
+
+module.exports = nextConfig

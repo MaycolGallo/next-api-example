@@ -9,16 +9,17 @@ export default function Home({ products }) {
         <title>Fetch API Example</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-7xl my-3 font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-yellow-500">Products List</h1>
-      <section className="grid my-4 md:grid-cols-3 gap-4">
+      <h1 className="text-7xl my-3 font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-red-600">Products List</h1>
+      <section className="grid my-4 md:grid-cols-3 gap-6">
         {products.map((product) => (
-          <div className="bg-white elevation-2 rounded" key={product.id}>
+          <div className="bg-white/80 elevation-2 rounded" key={product.id}>
             <Image
               src={product.image}
               layout="responsive"
               width={1080}
               height={1020}
-              className="rounded object-center"
+              objectFit="contain"
+              className="rounded"
               alt={product.title}
             />
             <div className="px-3 space-y-3 py-4">
@@ -45,9 +46,7 @@ export async function getStaticProps() {
   const data = await fetch("https://fakestoreapi.com/products");
   const products = await data.json();
 
-  // console.log(products);
-
   return {
-    props: { products: products },
+    props: { products },
   };
 }
